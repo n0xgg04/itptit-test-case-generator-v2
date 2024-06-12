@@ -12,6 +12,7 @@ import { generate } from "@/generator"
 import * as path from "path"
 
 @TestAmount(20)
+@Cpp("./solution.cpp")
 @InputFileConfig({
 	filename: "input$.txt",
 	path: path.join(process.cwd(), "input"),
@@ -22,7 +23,6 @@ import * as path from "path"
 	path: path.join(process.cwd(), "input"),
 	autoAddZero: false,
 })
-@Cpp("./solution.cpp")
 export default class Test extends TestTemplateClass {
 	@Int(1, 5)
 	n: CPP.Int
