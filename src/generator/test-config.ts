@@ -6,6 +6,7 @@ import {
 	testAmount as testAmountSymbol,
 } from "@/symbols"
 
+@Singleton()
 export class TestConfig {
 	/**
 	 * Số lượng test-case tối đa
