@@ -21,7 +21,6 @@ export function generate(
 	console.clear()
 	terminal.bold(`ITPTIT Test Generator ${app.version}\n`)
 	const generateConfig = readConfig(TestCaseTemplate, config)
-	console.log(generateConfig)
 
 	const numberOfTests = generateConfig.maxAmount
 	if (!numberOfTests) {
@@ -42,19 +41,48 @@ export function generate(
 	}
 
 	next()
-	if (!fs.existsSync(<string>config?.inputFileConfig?.path)) {
-		throw new SkillIssueException("Thư mục lưu input không tồn tại")
+	const inp = generateConfig?.inputFileConfig?.path
+	const out = generateConfig?.outputFileConfig?.path
+	if (!fs.existsSync(<string>inp)) {
+		throw new SkillIssueException(
+			`Thư mục lưu input không tồn tại (${config?.inputFileConfig?.path})`,
+		)
 	}
 
-	if (!fs.existsSync(<string>config?.outputFileConfig?.path)) {
-		throw new SkillIssueException("Thư mục lưu output không tồn tại")
+	if (!fs.existsSync(<string>out)) {
+		throw new SkillIssueException(
+			`Thư mục lưu output không tồn tại (${config?.outputFileConfig?.path})`,
+		)
 	}
 
 	for (let i = 0; i <= numberOfTests; i++) {
 		const result = generateTestCase(TestCaseTemplate, config)
+		let stt = generateConfig.inputFileConfig?.autoAddZero
+			? fill(i.toString(), numberOfTests.toString().length)
+			: i.toString()
+
+		if (inp != null) {
+			fs.writeFileSync(
+				path.join(
+					inp,
+					generateConfig.inputFileConfig!.filename.replaceAll(
+						"$",
+						stt,
+					),
+				),
+				result,
+			)
+		} else {
+			throw new SkillIssueException("Input không hợp lệ")
+		}
 	}
 
 	next()
 	console.clear()
 	terminal.green("Xong !")
+}
+
+function fill(name: string, size: number) {
+	while (name.length != size) name = "0" + name
+	return name
 }

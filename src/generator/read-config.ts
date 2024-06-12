@@ -17,9 +17,9 @@ export function readConfig(
 		if (reflectKey == undefined) {
 			throw new TestConfigMetadataIssue()
 		}
-		const value =
-			result[key as keyof typeof result] ||
-			Reflect.getMetadata(reflectKey, template)
+		const reflect = Reflect.getMetadata(reflectKey, template)
+		const value = reflect || result[key as keyof typeof result]
+
 		if (!value) {
 			throw new SkillIssueException(
 				`Thiết lập bộ mẫu sinh test lỗi: ${key} không tồn tại!`,

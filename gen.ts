@@ -13,13 +13,13 @@ import * as path from "path"
 
 @TestAmount(20)
 @Cpp("./solution.cpp")
-@InputFileConfig({
-	filename: "input$.txt",
-	path: path.join(process.cwd(), "input"),
-	autoAddZero: false,
-})
 @OutputFileConfig({
 	filename: "output$.txt",
+	path: path.join(process.cwd(), "output"),
+	autoAddZero: false,
+})
+@InputFileConfig({
+	filename: "input$.txt",
 	path: path.join(process.cwd(), "input"),
 	autoAddZero: false,
 })

@@ -1,5 +1,5 @@
 import "reflect-metadata"
-import { inputFileConfig as metaKey } from "@/symbols"
+import { outFileConfig as metaKey } from "@/symbols"
 
 /**
  * Thiết lập output file
