@@ -1,0 +1,6 @@
+export const testAmount = Symbol("test-amount")
+export const outputPath = Symbol("output-path")
+export const inputPath = Symbol("input-path")
+export const CppPath = Symbol("cpp-path")
+export const inputFileConfig = Symbol("input-file-config")
+export const outFileConfig = Symbol("output-file-config")

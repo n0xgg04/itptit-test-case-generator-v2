@@ -1,0 +1,31 @@
+{
+  "main": "index.ts",
+  "name": "itptit-basic-test-generator",
+  "keywords": [
+    "itptit",
+    "test-generator"
+  ],
+  "author": {
+    "email": "ltanh.2604@gmail.com",
+    "url": "https://github.com/n0xgg04",
+    "name": "Tuan Anh"
+  },
+  "scripts": {
+    "start": "bun run gen.ts"
+  },
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "big-integer": "^1.6.52",
+    "class-transformer": "^0.5.1",
+    "prettier": "^3.3.2",
+    "reflect-metadata": "^0.2.2",
+    "terminal-kit": "^3.1.1"
+  }
+}
