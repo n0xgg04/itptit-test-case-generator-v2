@@ -52,16 +52,21 @@ Kết quả các file input:
 curl -fsSL https://bun.sh/install | bash- 
 ```
 #### **Windows**:
+
 ```bash
 powershell -c "irm bun.sh/install.ps1 | iex"
 - ```
 
+
 2. Tạo 1 thư mục mới, chạy lệnh ``bun init`` để tạo một project mới (Cứ ấn Enter để bỏ qua đặt tên, ...)
 3. Cài đặt deps
+
 ```bash
 bun add @itptit/test-generator
 ```
+
 4. Tạo ``index.ts`` (nếu chưa có)
+
 5. Bổ sung đoạn code sau và ``package.json`` ở sau đoạn ``type: "module",``, sau dấu ``,``
 ```
   "scripts": {
