@@ -26,16 +26,16 @@ export function Int(
 	return (target, propertyKey) => {
 		const descriptor = Object.getOwnPropertyDescriptor(target, propertyKey)
 
+		const rand = getRandomBigIntInRangeWithFilter(
+			bigInt(min as string),
+			bigInt(max as string),
+			filter,
+		)
+
 		Object.defineProperty(target, propertyKey, {
 			...descriptor,
 			get() {
-				return bigInt(
-					getRandomBigIntInRangeWithFilter(
-						bigInt(min as string),
-						bigInt(max as string),
-						filter,
-					),
-				)
+				return bigInt(rand)
 			},
 			configurable: true,
 		})
